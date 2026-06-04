@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quest List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>⚔️ Quest Tracker</h1>
+        
+        <!-- Stats Bar -->
+        <div class="stats-bar">
+            <div class="stat">
+                <span class="stat-label">Total Points</span>
+                <span class="stat-value" id="totalPoints">0</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Quests Completed</span>
+                <span class="stat-value" id="completedCount">0</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Current Streak</span>
+                <span class="stat-value" id="streak">0</span>
+            </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-section">
+            <h3>Today's Progress</h3>
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <p id="progressText">0/0 quests completed</p>
+        </div>
+
+        <!-- Notifications -->
+        <div id="notification" class="notification"></div>
+        
+        <!-- Add Quest Form -->
+        <div class="add-quest">
+            <input type="text" id="questInput" placeholder="Enter a quest...">
+            <select id="questType">
+                <option value="daily">Daily</option>
+                <option value="weekly">Weekly</option>
+                <option value="monthly">Monthly</option>
+            </select>
+            <input type="number" id="questPoints" placeholder="Points (default: 10)" min="1" value="10">
+            <button onclick="addQuest()">Add Quest</button>
+        </div>
+
+        <!-- Daily Quests -->
+        <div class="quest-section">
+            <h2>📅 Daily Quests</h2>
+            <ul id="dailyQuests" class="quest-list"></ul>
+        </div>
+
+        <!-- Weekly Quests -->
+        <div class="quest-section">
+            <h2>📆 Weekly Quests</h2>
+            <ul id="weeklyQuests" class="quest-list"></ul>
+        </div>
+
+        <!-- Monthly Quests -->
+        <div class="quest-section">
+            <h2>📊 Monthly Quests</h2>
+            <ul id="monthlyQuests" class="quest-list"></ul>
+        </div>
+
+        <!-- Reset Button -->
+        <div class="reset-section">
+            <button onclick="resetDaily()" class="reset-btn">Reset Daily Quests</button>
+            <button onclick="clearAll()" class="clear-btn">Clear All Data</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
